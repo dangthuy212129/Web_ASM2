@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./assets/css/base.css" />
+  <link rel="stylesheet" href="./assets/css/main.css" />
+  <link rel="stylesheet" href="./assets/css/grid.css" />
+  <link rel="stylesheet" href="./assets/css/responsive.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    .flex-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      width: 100%;
+      font-size: 15px;
+    }
+
+    .container {
+      width: 70%;
+      margin-right: 20px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bff; /* Màu xanh dương */
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #eaeaea;
+      border-radius: 4px;
+    }
+
+    .payment-method {
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: block;
+      background-color: var(--primary-color);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: #e94e1b;
+    }
+
+    #total {
+      font-weight: bold;
+    }
+
+    .cart-item {
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 20px;
+    }
+
+    .cart-product-image {
+      max-width: 100px;
+      max-height: 100px;
+      margin-right: 20px;
+    }
+
+    .cart-product-info {
+      display: flex;
+      align-items: center;
+    }
+
+    body,
+    html {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      text-align: center;
+    }
+
+    /* CSS cho thông báo */
+    .error-message {
+      color: red;
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="grid wide">
+        <div class="header-with-search">
+          <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox" />
+          <div class="header__search ">
+            <script src="assets/js/giohang.js"></script>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="flex-container">
+      <div class="container">
+        <h2>THÔNG TIN THANH TOÁN</h2>
+        <form id="payment-form">
+          <div class="form-group">
+            <label for="name">Họ và Tên *</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="address">Địa chỉ nhận hàng *</label>
+            <textarea id="address" name="address" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="phone">Số điện thoại *</label>
+            <input type="text" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Địa chỉ email *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="order-note">Ghi chú đơn hàng (tuỳ chọn)</label>
+            <textarea id="order-note" name="order-note"></textarea>
+          </div>
+          <div class="payment-method">
+            <label for="phone">Phương thức thanh toán *</label>
+            <div>
+              <input type="radio" id="bank-transfer" name="payment-method" value="chuyen-khoan" required>
+              <label for="bank-transfer">Chuyển khoản ngân hàng</label>
+              <p>Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng Mã đơn hàng của bạn trong phần Nội dung thanh toán. Đơn hàng sẽ được giao sau khi tiền đã chuyển.</p>
+            </div>
+            <div>
+              <input type="radio" id="cash-on-delivery" name="payment-method" value="tra-tien-mat" required>
+              <label for="cash-on-delivery">Trả tiền mặt khi nhận hàng</label>
+            </div>
+          </div>
+          <div>
+            <button type="button" onclick="confirmOrder()" style="display: block; margin: 0 auto;">Xác Nhận Thanh Toán</button>
+          </div>
+          <p class="error-message">Vui lòng nhập đầy đủ thông tin</p>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    function confirmOrder() {
+      var name = document.getElementById('name').value;
+      var address = document.getElementById('address').value;
+      var phone = document.getElementById('phone').value;
+      var email = document.getElementById('email').value;
+      var paymentMethod = document.querySelector('input[name="payment-method"]:checked');
+
+      if (name && address && phone && email && paymentMethod) {
+        alert('Xác nhận thành công đơn hàng của bạn');
+      } else {
+        document.querySelector('.error-message').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Giới thiệu - Thế giới điện thoại</title>
+    <link rel="shortcut icon" href="img/favicon.ico" />
+
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        crossorigin="anonymous">
+        
+  
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/topnav.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/taikhoan.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/gioithieu.css">
+
+    
+    <script src="data/products.js"></script>
+	<script src="js/dungchung.js"></script>
+    <script>
+        window.onload = function () {
+            khoiTao();
+         
+            var tags = ["Samsung", "iPhone", "Huawei", "Oppo", "Mobi"];
+            for (var t of tags) addTags(t, "index.html?search=" + t);
+        }
+    </script>
+
+</head>
+
+<body>
+    <script> addTopNav();</script>
+
+    <section style="min-height: 85vh">
+        <script> addHeader(); </script>
+
+        <div class="page-gt">
+            <h4 class="page-header">
+                Giới thiệu
+            </h4>
+            <div class="page-info">
+                <p>Chào mừng bạn đến với cửa hàng bán điện thoại!
+                </p>
+                <br />
+                <p>
+                        Chúng tôi tự hào là địa chỉ tin cậy và uy tín dành cho những người đam mê công nghệ và đang tìm kiếm 
+                        chiếc điện thoại hoàn hảo cho bản thân. Với nhiều năm kinh nghiệm trong ngành, cửa hàng của chúng tôi 
+                        không chỉ mang đến cho khách hàng những sản phẩm chất lượng mà còn là nơi thể hiện sự tận tâm 
+                        và chuyên nghiệp trong dịch vụ.<br />
+                        Tại cửa hàng, bạn sẽ được trải nghiệm một không gian mua sắm thoải mái và tiện lợi, với sự hỗ trợ
+                        nhiệt tình từ đội ngũ nhân viên giàu kinh nghiệm của chúng tôi. Chúng tôi cam kết cung cấp
+                        những sản phẩm chính hãng, đa dạng về mẫu mã và giá cả phù hợp với mọi nhu cầu và túi tiền.<br />
+                        Ngoài ra, cửa hàng còn cung cấp các dịch vụ hậu mãi tận tình như bảo hành, bảo dưỡng và
+                        hỗ trợ kỹ thuật để đảm bảo bạn luôn có trải nghiệm sử dụng điện thoại tốt nhất.
+                            Sự hài lòng của khách hàng là ưu tiên hàng đầu của chúng tôi, và chúng tôi luôn sẵn lòng lắng nghe 
+                            và đáp ứng mọi yêu cầu và phản hồi từ phía quý khách.<br />
+                            Hãy đến và trải nghiệm dịch vụ của chúng tôi ngay hôm nay để khám phá thế giới công nghệ 
+                            đầy sáng tạo và tiện ích.
+                            <br />
+                        Chúng tôi xin chân thành cảm ơn tất cả các khách hàng đã, đang và sẽ ủng hộ chúng tôi.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script> addContainTaiKhoan(); </script>
+
+    <div class="footer">
+        <script>addFooter();</script>
+        
+    </div>
+
+    <i class="fa fa-arrow-up" id="goto-top-page" onclick="gotoTop()"></i>
+</body>
+
+</html>
